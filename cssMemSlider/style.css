@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.form {
+  width: 70vw;
+  margin: 20px auto;  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 30px;
+  overflow: hidden;
+}
+
+.memes-container {
+  display: flex;
+  transition: all 1s;
+}
+
+.meme {
+  width: 70vw;
+  height: 35vw;
+  transition: all 5s;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+
+.meme-1 {
+  background-image: url('./src/images/01.jpg');
+}
+
+.meme-2 {
+  background-image: url('./src/images/02.jpg');
+}
+
+.meme-3 {
+  background-image: url('./src/images/03.jpg');
+}
+
+.meme-4 {
+  background-image: url('./src/images/04.jpg');
+}
+
+.control-1:checked ~ .memes-container {
+  transform: translateX(0);
+}
+
+.control-2:checked ~ .memes-container {
+  transform: translateX(-70vw);
+}
+
+.control-3:checked ~ .memes-container {
+  transform: translateX(-140vw);
+}
+
+.control-4:checked ~ .memes-container {
+  transform: translateX(-210vw);
+}
+
+.caption {
+  opacity: 0;
+  transform: translateY(2vw);
+  transition: transform 0s, opacity 3s; 
+}
+
+.control-1:checked ~ .captions-container > .caption-1 {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.control-2:checked ~ .captions-container > .caption-2 {
+  transform: translateY(-2vw);
+  opacity: 1;
+}
+
+.control-3:checked ~ .captions-container > .caption-3 {
+  transform: translateY(-4vw);
+  opacity: 1;
+}
+
+.control-4:checked ~ .captions-container > .caption-4 {
+  transform: translateY(-6vw);
+  opacity: 1;
+}
+
+.control-inner {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-block;
+  width: 2.5vw;
+  height: 2.5vw;
+  background-color: blueviolet;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 1px rgba(0,0,0,1) inset;
+  border: 0.75vw solid white; 
+  cursor: pointer;
+}
+
+.control-inner:checked {
+  background-color: white;
+}
+
+.control-inner:hover {
+  background-color: yellow;
+}
+
+.control-1 {
+  order: 2;
+}
+
+.control-2 {
+  order: 3;
+}
+
+.control-3 {
+  order: 4;
+}
+
+.control-4 {
+  order: 5;
+}
+
+.captions-container {
+  width: 60vw;
+  height: 2vw;
+  order: 1;
+  overflow: hidden;
+}
+
+.caption {
+  width: 60vw;
+  display: inline-block;
+  line-height: 2vw;
+}
+
+@media only screen and (max-width: 1200px) {
+  body {
+    /* background-color: aquamarine; */
+  }
+}
