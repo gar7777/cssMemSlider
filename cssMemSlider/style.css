@@ -5,22 +5,31 @@
   font-family: 'Roboto', Helvetica, sans-serif;
 }
 
+:root {
+  --primary-color: rgb(22, 59, 41);
+  --secondary-color: PaleGoldenrod;
+  --auxillary-color: rgb(11, 108, 45); 
+  --active-color: PaleGreen;
+  --white-color: #fff;
+  --gray-color: Gray;
+}
+
 body {
-  background-color: DarkGreen;
+  background-color: var(--primary-color);
 }
 
 .h1 {
-  width: 60vh;
+  width: 90vw;
   text-align: center;
   margin: 2vw auto;
   font-weight: 700;
-  font-size: 3vw;
-  color: PaleGreen;
+  font-size: 2.8vw;
+  color: var(--active-color);
 }
 
 .form {
   width: 60vw;
-  margin: 2vw auto;  
+  margin: 0 auto;  
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -29,7 +38,14 @@ body {
   overflow: hidden;
 }
 
+.memes-outer {
+  border-radius: 0.5vw;
+  overflow: hidden;
+  border: 1px solid var(--auxillary-color);
+}
+
 .memes-container {
+  width: 240vw;
   display: flex;
   transition: all 1s;
 }
@@ -39,7 +55,6 @@ body {
   height: 35vw;
   background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 0.5vw;
 }
 
 .meme-1 {
@@ -58,20 +73,27 @@ body {
   background-image: url('./src/images/04.jpg');
 }
 
-.control-1:checked ~ .memes-container {
+.control-1:checked ~ .memes-outer > .memes-container {
   transform: translateX(0);
 }
 
-.control-2:checked ~ .memes-container {
+.control-2:checked ~ .memes-outer > .memes-container {
   transform: translateX(-60vw);
 }
 
-.control-3:checked ~ .memes-container {
+.control-3:checked ~ .memes-outer >  .memes-container {
   transform: translateX(-120vw);
 }
 
-.control-4:checked ~ .memes-container {
+.control-4:checked  ~ .memes-outer > .memes-container {
   transform: translateX(-180vw);
+}
+
+.captions-container {
+  width: 50vw;
+  height: 3vw;
+  order: 1;
+  overflow: hidden;
 }
 
 .caption {
@@ -79,31 +101,10 @@ body {
   display: inline-block;
   line-height: 3vw;
   font-size: 2vw;
-  color: PaleGoldenrod; 
+  color: var(--secondary-color); 
   letter-spacing: 0.05rem;
   opacity: 0;
-  transform: translateY(3vw);
   transition: transform 0s, opacity 3s;
-}
-
-.control-1:checked ~ .captions-container > .caption-1 {
-  transform: translateY(-0.5vw);
-  opacity: 1;
-}
-
-.control-2:checked ~ .captions-container > .caption-2 {
-  transform: translateY(-3.5vw);
-  opacity: 1;
-}
-
-.control-3:checked ~ .captions-container > .caption-3 {
-  transform: translateY(-6.5vw);
-  opacity: 1;
-}
-
-.control-4:checked ~ .captions-container > .caption-4 {
-  transform: translateY(-9.5vw);
-  opacity: 1;
 }
 
 .control {
@@ -113,19 +114,43 @@ body {
   display: inline-block;
   width: 2.5vw;
   height: 2.5vw;
-  background-color: blueviolet;
+  background-color: var(--gray-color);
   border-radius: 50%;
-  box-shadow: 0px 0px 0px 1px rgba(0,0,0,1) inset;
-  border: 0.75vw solid white; 
+  box-shadow: 0px 0px 0px 1px var(--white-color) inset;
+  border: 0.75vw solid var(--primary-color); 
   cursor: pointer;
 }
 
 .control:checked {
-  background-color: white;
+  background-color: var(--active-color);
+}
+
+.control:active {
+  box-shadow: 0px 0px 0px 1px var(--gray-color) inset;
 }
 
 .control:hover {
-  background-color: yellow;
+  background-color: var(--secondary-color);
+}
+
+.control-1:checked ~ .captions-container > .caption-1 {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.control-2:checked ~ .captions-container > .caption-2 {
+  transform: translateY(-3vw);
+  opacity: 1;
+}
+
+.control-3:checked ~ .captions-container > .caption-3 {
+  transform: translateY(-6vw);
+  opacity: 1;
+}
+
+.control-4:checked ~ .captions-container > .caption-4 {
+  transform: translateY(-9vw);
+  opacity: 1;
 }
 
 .control-1 {
@@ -144,14 +169,12 @@ body {
   order: 5;
 }
 
-.captions-container {
-  width: 50vw;
-  height: 2vw;
-  order: 1;
-  overflow: hidden;
-}
-
 @media only screen and (max-width: 900px) {
+  
+  .memes-outer {
+    border-radius: 0.8vw;
+  }
+
   .control {
     width: 3vw;
     height: 3vw;
@@ -166,17 +189,26 @@ body {
 @media only screen and (max-width: 640px) {
   
   .h1 {
-    font-size: 5vw;
+    font-size: 4.5vw;
+    margin: 3vw auto;
   }
 
   .form {
     width: 80vw;
+    row-gap: 3vw;
+  }
+
+  .memes-outer {
+    border-radius: 1vw;
+  }
+
+  .memes-container {
+    width: 320vw;
   }
 
   .meme {
     width: 80vw;
     height: 46.65vw;
-    border-radius: 0.8vw;
   }
 
   .captions-container {
@@ -201,16 +233,22 @@ body {
     margin-right: auto;
   } 
 
-  .control-2:checked ~ .memes-container {
+  .control-2:checked ~ .memes-outer > .memes-container {
     transform: translateX(-80vw);
   }
   
-  .control-3:checked ~ .memes-container {
+  .control-3:checked ~ .memes-outer > .memes-container {
     transform: translateX(-160vw);
   }
   
-  .control-4:checked ~ .memes-container {
+  .control-4:checked ~ .memes-outer > .memes-container {
     transform: translateX(-240vw);
+  }
+
+  .captions-container {
+    width: 80vw;
+    height: 4vw;
+    transform: translateY(-2vw);
   }
 
   .caption {
@@ -219,19 +257,49 @@ body {
   }
 
   .control-1:checked ~ .captions-container > .caption-1 {
-    transform: translateY(-1vw);
+    transform: translateY(0);
   }
   
   .control-2:checked ~ .captions-container > .caption-2 {
-    transform: translateY(-5vw);
+    transform: translateY(-4vw);
   }
   
   .control-3:checked ~ .captions-container > .caption-3 {
-    transform: translateY(-9vw);
+    transform: translateY(-8vw);
   }
   
   .control-4:checked ~ .captions-container > .caption-4 {
-    transform: translateY(-13vw);
+    transform: translateY(-12vw);
+  }
+
+}
+
+@media only screen and (max-width: 520px) {
+  
+  .memes-outer {
+    border-radius: 1vw;
+  }
+
+  .control {
+    width: 4.5vw;
+    height: 4.5vw;
+    border-width: 1.4vw;
+  }
+
+  
+
+}
+
+@media only screen and (max-width: 440px) {
+  
+  .memes-outer {
+    border-radius: 1.5vw;
+  }
+
+  .control {
+    width: 5.5vw;
+    height: 5.5vw;
+    border-width: 1.7vw;
   }
 
 }
