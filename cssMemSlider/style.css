@@ -186,7 +186,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 680px) {
   
   .h1 {
     font-size: 4.5vw;
@@ -217,6 +217,7 @@ body {
 
   .caption {
     width: 80vw;
+    line-height: 3.5vw;
   }
 
   .control {
@@ -269,7 +270,7 @@ body {
   }
   
   .control-4:checked ~ .captions-container > .caption-4 {
-    transform: translateY(-12vw);
+    transform: translateY(-12.25vw);
   }
 
 }
@@ -286,11 +287,35 @@ body {
     border-width: 1.4vw;
   }
 
+  .captions-container {
+    height: 4.5vw;
+  }
+
+  .caption {
+    line-height: 4.5vw;
+    font-size: 3vw;
+    transform: translateY(0.5);
+  }
+
+  .control-1:checked ~ .captions-container > .caption-1 {
+    transform: translateY(0);
+  }
   
+  .control-2:checked ~ .captions-container > .caption-2 {
+    transform: translateY(-4.5vw);
+  }
+  
+  .control-3:checked ~ .captions-container > .caption-3 {
+    transform: translateY(-9vw);
+  }
+  
+  .control-4:checked ~ .captions-container > .caption-4 {
+    transform: translateY(-13.5vw);
+  }
 
 }
 
-@media only screen and (max-width: 440px) {
+@media only screen and (max-width: 464px) {
   
   .memes-outer {
     border-radius: 1.5vw;
@@ -300,6 +325,61 @@ body {
     width: 5.5vw;
     height: 5.5vw;
     border-width: 1.7vw;
+  }
+
+  .captions-container {
+    height: 5.5vw;
+  }
+
+  .caption {
+    line-height: 5.5vw;
+    font-size: 3.5vw;
+  }
+
+  .control-1:checked ~ .captions-container > .caption-1 {
+    transform: translateY(0);
+  }
+  
+  .control-2:checked ~ .captions-container > .caption-2 {
+    transform: translateY(-5.5vw);
+  }
+  
+  .control-3:checked ~ .captions-container > .caption-3 {
+    transform: translateY(-11vw);
+  }
+  
+  .control-4:checked ~ .captions-container > .caption-4 {
+    transform: translateY(-16.5vw);
+  }
+
+}
+
+
+@media only screen and (max-width: 380px) {
+  
+  .captions-container {
+    height: 6vw;
+  }
+
+  .caption {
+    line-height: 6vw;
+    font-size: 4vw;
+  }
+
+  .control-1:checked ~ .captions-container > .caption-1 {
+    transform: translateY(0);
+  }
+  
+  .control-2:checked ~ .captions-container > .caption-2 {
+    transform: translateY(-6.3vw);
+  }
+  
+  .control-3:checked ~ .captions-container > .caption-3 {
+    transform: translateY(-12.6vw);
+  }
+  
+  .control-4:checked ~ .captions-container > .caption-4 {
+    transform: translateY(-18.9vw);
   }
 
 }
