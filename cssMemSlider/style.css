@@ -41,7 +41,7 @@ body {
 .memes-outer {
   border-radius: 0.5vw;
   overflow: hidden;
-  border: 1px solid var(--auxillary-color);
+  border: 0.15rem solid var(--auxillary-color);
 }
 
 .memes-container {
@@ -116,7 +116,7 @@ body {
   height: 2.5vw;
   background-color: var(--gray-color);
   border-radius: 50%;
-  box-shadow: 0px 0px 0px 1px var(--white-color) inset;
+  box-shadow: 0 0 0 0.07rem var(--white-color) inset;
   border: 0.75vw solid var(--primary-color); 
   cursor: pointer;
 }
@@ -126,7 +126,7 @@ body {
 }
 
 .control:active {
-  box-shadow: 0px 0px 0px 1px var(--gray-color) inset;
+  box-shadow: 0 0 0 0.07rem var(--gray-color) inset;
 }
 
 .control:hover {
@@ -353,7 +353,6 @@ body {
   }
 
 }
-
 
 @media only screen and (max-width: 380px) {
   
